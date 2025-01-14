@@ -6,6 +6,10 @@ A Flutter application that fetches employee data from an API using the `dio` pac
 
 - Fetches employee data from `http://dummy.restapiexample.com/api/v1/employees`.
 - Uses `dio` for HTTP requests.
-- Parses JSON responses into an `Employee` model.
+- Proper error handling using try-catch.
+- Parses JSON responses into an `Employee` model.   
+- Displaying a loading indicator while fetching data
+- Navigation between two screens and passing data to the details screen.
 - Displays employee details in a list view.
 - Well-structured code with separate files for models and widgets.
+- Cache the employee list locally using shared_preferences and load it on app restart
