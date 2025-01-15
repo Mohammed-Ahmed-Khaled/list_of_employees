@@ -9,13 +9,20 @@ class EmployeeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(
-        itemCount: employeeModels.length,
-        itemBuilder: (context, index) {
-          final employee = employeeModels[index];
-          return EmployeeCard(employeeModel: employee);
-        },
-      ),
+      child: employeeModels.isNotEmpty
+          ? ListView.builder(
+              itemCount: employeeModels.length,
+              itemBuilder: (context, index) {
+                final employee = employeeModels[index];
+                return EmployeeCard(employeeModel: employee);
+              },
+            )
+          : Center(
+              child: Text(
+                'No Data found.',
+                style: TextStyle(fontSize: 30, color: Colors.grey),
+              ),
+            ),
     );
   }
 }

@@ -7,11 +7,10 @@ class EmployeeService {
 
   Future<List<EmployeeModel>> fetchEmployees() async {
     try {
-      Response response =
-          await dio.get('http://dummy.restapiexample.com/api/v1/employees');
+      Response response = await dio.get('https://dummyjson.com/users');
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonData = response.data;
-        List<dynamic> employees = jsonData['data'];
+        List<dynamic> employees = jsonData['users'];
         return employees
             .map((employee) => EmployeeModel.fromJson(employee))
             .toList();
