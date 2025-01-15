@@ -12,29 +12,83 @@ class EmployeeDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Image.network(
-                employeeModel.imageUrl == null
-                    ? 'assets/images/no_image.png'
-                    : employeeModel.imageUrl!,
-                fit: BoxFit.cover,
+            employeeModel.imageUrl.isNotEmpty
+                ? Image.network(
+                    employeeModel.imageUrl,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset(
+                    'assets/images/no_image.png',
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    fit: BoxFit.cover,
+                  ),
+            const SizedBox(height: 10),
+            Center(
+              child: Text(
+                '${employeeModel.firstName} ${employeeModel.midName} ${employeeModel.lastName}',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
+            const SizedBox(height: 10),
             Text(
-              employeeModel.name,
+              'Age: ${employeeModel.age} years old',
               style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: Colors.grey,
               ),
             ),
+            const SizedBox(height: 10),
             Text(
-              'Age: ${employeeModel.age} | Salary: ${employeeModel.salary}',
+              'Gender: ${employeeModel.gender}',
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 15,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Birth Date: ${employeeModel.birthDate}',
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Height: ${employeeModel.height}',
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Phone Number: ${employeeModel.phone}',
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Email: ${employeeModel.email}',
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'University: ${employeeModel.university}',
+              style: const TextStyle(
+                fontSize: 15,
                 color: Colors.grey,
               ),
             ),

@@ -27,7 +27,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error fetching employees. Please try again.')),
+        SnackBar(content: Text('$e')),
       );
     } finally {
       setState(() {
@@ -50,7 +50,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
             ),
       floatingActionButton: FloatingActionButton(
         onPressed: fetchEmployees,
-        child: Icon(Icons.add),
+        child: Icon(Icons.refresh),
       ),
     );
   }
