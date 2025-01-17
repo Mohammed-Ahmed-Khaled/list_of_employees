@@ -43,4 +43,21 @@ class EmployeeModel {
       university: json['university'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'firstName': firstName,
+      'midName': midName,
+      'lastName': lastName,
+      'age': age,
+      'gender': gender,
+      'imageUrl': imageUrl,
+      'email': email,
+      'phone': phone,
+      'birthDate': birthDate,
+      'height': height,
+      'university': university,
+    };
+  }
 }
